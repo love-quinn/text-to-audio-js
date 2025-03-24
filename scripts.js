@@ -28,6 +28,16 @@ const atualizarValores = () => {
 
 window.speechSynthesis.onvoiceschanged = atualizarValores;
 
+function atualizarEstadoBotoes() {
+    const texto = entradaDeTexto.value.trim(); // Remove espaços em branco
+    const desativar = texto === ""; // Verifica se está vazio
+
+    [botaoOuvir, botaoBaixarTexto].forEach((botao) => {
+        botao.disabled = desativar;
+        botao.classList.toggle("botao-desativado", desativar);
+    });
+}
+
 selecaoVoz.addEventListener('change', () => {
     fala.voice = vozesDisponiveis[selecaoVoz.value];
 });
@@ -63,3 +73,9 @@ botaoBaixarTexto.addEventListener('click', () => {
 
     URL.revokeObjectURL(url);
 });
+
+// Adiciona evento ao campo de texto para monitorar mudanças
+entradaDeTexto.addEventListener("input", atualizarEstadoBotoes);
+
+// Executa a verificação inicial ao carregar a página
+document.addEventListener("DOMContentLoaded", atualizarEstadoBotoes);
