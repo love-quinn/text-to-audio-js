@@ -38,11 +38,11 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    gap: 20px;
+    gap: 50px;
 }
 
 #entrada-de-conteudo textarea{
-    width: 70%;
+    width: 60%;
     height: 150px;
     border-radius: none;
     border-radius: 5px;
@@ -58,14 +58,17 @@ input[type="file"] {
 .acoes {
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: 80%;
+    /* justify-content: space-between; */
+    width: 60%;
 }
 
 .acao-box {
     padding: 15px;
     gap: 15px;
     flex: 1;
+    width: 100%;
+    justify-content: space-between;
+
 }
 
 .acoes select,
@@ -81,7 +84,7 @@ input[type="file"] {
     cursor: pointer;
 }
 
-#selecao-voz select {
+#selecao-voz {
     width: 100%;
 }
 
